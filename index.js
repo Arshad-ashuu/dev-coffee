@@ -12,9 +12,19 @@ import nodemailer from 'nodemailer';  // Import nodemailer
 configDotenv();
 
 mongoose.connect(process.env.MONGODB_URI);
+const products=[
+    { name: 'Espresso', price: 2.50 },
+    { name: 'Americano', price: 3.00 },
+    { name: 'Cappuccino', price: 3.50 },
+    { name: 'Latte', price: 4.00 },
+    { name: 'Mocha', price: 4.50 },
+    { name: 'Flat White', price: 4.00 },
+    { name: 'Macchiato', price: 3.25 },
+    { name: 'Caramel Macchiato', price: 4.75 },
+    { name: 'Iced Coffee', price: 3.75 },
+    { name: 'Cold Brew', price: 4.25 }
+  ];
 
-// Read products data from products.json
-const products = JSON.parse(fs.readFileSync('products.json', 'utf8'));
 
 async function registerUser() {
   console.log(chalk.cyan('\t\t\t\n☕ Hey! Welcome to Coffee-Order! 🍵 \n'));
