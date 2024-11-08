@@ -62,6 +62,11 @@ Follow the prompts to register, browse products, place orders, and view order hi
    - Choose "View Orders" to see your previous orders.
 
 ---
+
+
+https://github.com/user-attachments/assets/2cfeb40f-bc1f-4c89-b6d9-bed4e4ef965b
+
+
 ## Development
 
 To work on this project locally:
