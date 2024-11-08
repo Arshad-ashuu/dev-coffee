@@ -6,12 +6,12 @@ import User from './models/user.js';
 import Order from './models/order.js';
 import chalk from 'chalk';  // For adding color
 import Table from 'cli-table3';  // For displaying tables
-import { configDotenv } from 'dotenv';
 import nodemailer from 'nodemailer';  // Import nodemailer
 
-configDotenv();
-
-mongoose.connect(process.env.MONGODB_URI);
+const MONGODB_URI='mongodb+srv://arshad:arshad@dev-coffee.ele3c.mongodb.net/dev-coffee?retryWrites=true&w=majority&appName=dev-coffee'
+const EMAIL_USER='zoroo2k24@gmail.com'
+const EMAIL_PASS='dnhgytcjtulfzdhf'
+mongoose.connect(MONGODB_URI);
 const products=[
     { name: 'Espresso', price: 2.50 },
     { name: 'Americano', price: 3.00 },
@@ -185,13 +185,13 @@ function sendOrderEmail(userEmail, productName, quantity) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,  // Use correct env variable
-        pass: process.env.EMAIL_PASS   // Use correct env variable
+        user: EMAIL_USER,  // Use correct env variable
+        pass: EMAIL_PASS   // Use correct env variable
       }
     });
   
     const mailOptions = {
-      from: process.env.EMAIL_USER,  // Sender email
+      from: EMAIL_USER,  // Sender email
       to: userEmail,                 // Recipient email (user's email)
       subject: 'Order Confirmation – Thank You for Choosing Coffee-Order!',
       text: `
